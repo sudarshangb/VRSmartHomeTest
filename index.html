@@ -23,6 +23,7 @@
       <a-entity laser-controls="hand: right"></a-entity>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="https://ucarecdn.com/80c86187-e99a-4c33-b011-51acd8dc682a/">
+		<img id="vrhome" crossorigin="anonymous" src="assets/images/vrhome.png">
       </a-assets>
       <!-- camera and cursor -->
       <a-entity>
@@ -57,6 +58,12 @@
         geometry="primitive: sphere; radius: 600; segmentsHeight: 32; segmentsWidth: 32"
         material="shader: flat; fog: false; side: back; src: url(assets/images/sky.jpg)"
       ></a-entity>
+	  
+	   <a-entity id="vrhome"
+        <a-entity template="src: #vrhome position= "0.15 2.5 -3.5""></a-entity>
+      </a-entity>
+	  
+	  
       <!-- 360-degree image. -->
       <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
       <!-- END ENVIRONEMENT -->
