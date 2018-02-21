@@ -24,6 +24,7 @@
       <a-assets>
         <img id="city" crossorigin="anonymous" src="https://ucarecdn.com/80c86187-e99a-4c33-b011-51acd8dc682a/">
 		<img id="vrhome" crossorigin="anonymous" src="assets/images/vrhome.png">
+		
       </a-assets>
       <!-- camera and cursor -->
       <a-entity>
@@ -37,7 +38,7 @@
         </a-camera>
       </a-entity>
 
-      <a-text position="0.15 1.5 -3.5" value="Welcome to the VR Smart Home Experience!" align = "center" width= "5"></a-text>
+	  <a-text position="0.15 1.5 -3.5" value="Welcome to the VR Smart Home Experience!" align = "center" width= "5"></a-text>
 
       <!-- BEGIN INPUTS/KEYBOARD <a-button position="-0.8 1.8 -3.5" width="2" name="stuff" value="Enter Password" disabled="true" type="falt"></a-button>-->
       <a-keyboard physical-keyboard="true"></a-keyboard>
@@ -59,10 +60,9 @@
         material="shader: flat; fog: false; side: back; src: url(assets/images/sky.jpg)"
       ></a-entity>
 	  
-       <a-image  material="alphaTest: 0.5" src="assets/images/vrhome.png" position= "0 2.5 -3.5"></a-image>
-      
+	   <a-image  src="assets/images/vrhome.png" position= "0 2.5 -3.5"></a-image>
 	  
-	  
+	 
       <!-- 360-degree image. -->
       <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
       <!-- END ENVIRONEMENT -->
@@ -95,7 +95,9 @@
 		  else
 		  {
 		  toast.show();
+		  location.href = "control.html";
 		  MQTTconnect();
+		  
 		  }
       });
 
