@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>aframe-materialðŸ˜²ðŸ˜†ðŸ˜›</title>
+    <title>aframecontrol</title>
     <meta name="description" content="Aframe-Material">
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
     <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
@@ -19,8 +19,8 @@
       <a-entity laser-controls="hand: right"></a-entity>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="https://ucarecdn.com/80c86187-e99a-4c33-b011-51acd8dc682a/">
-		<a-asset-item id="bulb-obj" crossorigin="anonymous" src="/assets/obj/Light_bulb_01.obj"></a-asset-item>
-		<a-asset-item id="bulb-mtl" crossorigin="anonymous" src="/assets/obj/Light_bulb_01.mtl"></a-asset-item>
+	<a-asset-item id="bulb-obj" crossorigin="anonymous" src="/assets/obj/Light_bulb_01.obj"></a-asset-item>
+	<a-asset-item id="bulb-mtl" crossorigin="anonymous" src="/assets/obj/Light_bulb_01.mtl"></a-asset-item>
       </a-assets>
 	<!-- camera and cursor -->
       <a-entity> <a-camera look-controls-enabled wasd-controls-enabled mouse-cursor>
@@ -38,7 +38,7 @@
 
 
       <!-- BEGIN FORM -->
-      <a-rounded position="0.5 0.5 -2.5" width="4" height="3.1" radius="0.05" rotation="0 -20 0" scale="0.3 0.3 0.3">
+      <a-rounded position="0.5 0.5 -2.5" width="3" height="3" radius="0.05" rotation="0 -20 0" scale="0.3 0.3 0.3">
         <a-form>
           <a-button position="0.2 0.8 0" name="stuff" value="Click me" type="raised"></a-button>
         </a-form>
@@ -51,7 +51,7 @@
       <!-- END TOAST -->
 	 <a-entity obj-model="obj: #bulb-obj; mtl: #bulb-mtl"></a-entity>
       <!-- 360-degree image. -->
-     <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
+     <a-sky id="image-360" radius="10" src="innoworx.jpg" rotation="0 -50 0"><a-sky>
       <!-- END ENVIRONEMENT -->
     </a-scene>
     <script type="text/javascript">
@@ -66,6 +66,7 @@
       button.addEventListener('click', ()=> 
 	  {
         toast.show();
+        MQTTconnect();
       });
     </script>
   </body>
