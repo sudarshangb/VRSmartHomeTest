@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>VRSmartHomeTest</title>
+    <meta name="description" content="Aframe-Material">
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <script src="dist/aframe-material.js"></script>
+	<script src="dist/mqtthome.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"/script>
+    <!-- TEST -->
+    <script type="text/javascript">
+      AFRAME.ASSETS_PATH = "./assets";
+
+    </script>
+  </head>
+
+  <body>
+    <a-scene>
+      <a-entity laser-controls="hand: right"></a-entity>
+      <a-assets>
+        <img id="city" crossorigin="anonymous" src="https://ucarecdn.com/80c86187-e99a-4c33-b011-51acd8dc682a/">
+      </a-assets>
+      <!-- camera and cursor -->
+      <a-entity>
+        <a-camera look-controls-enabled wasd-controls-enabled mouse-cursor>
+          <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: black; shader: flat">
+            <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+            <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+
+            </a-cursor>
+          </a-entity>
+        </a-camera>
+      </a-entity>
+
+	  <a-text position="0.15 1.5 -3.5" value="Hello there! Welcome to the VR Smart Home Experience!" align = "center" width= "6"></a-text>
+
+      <!-- BEGIN INPUTS/KEYBOARD <a-button position="-0.8 1.8 -3.5" width="2" name="stuff" value="Enter Password" disabled="true" type="falt"></a-button>-->
+      <a-keyboard physical-keyboard="true"></a-keyboard>
+      <a-input id="password" position="-0.4 1 -2.5" type="password" placeholder="Enter your PIN" color="black"  width="1"></a-input>
+      <a-form>
+        <a-button position="-0.8 0.25 -3.5" width="2" name="stuff" value="Enter Inside" disabled="false" type="raised"></a-button>
+      </a-form>
+      <!-- END INPUTS/KEYBOARD -->
+
+      <!-- BEGIN TOAST<a-entity obj-model="obj: #bulb-obj; mtl: #bulb-mtl"></a-entity> -->
+      <a-toast id="toastWrong" message="Oops!Wrong Pin!" action="Got it"></a-toast>
+	  <a-toast id="toastConnected" message="Connected!" action="Got it"></a-toast>
+	  <a-toast id="toastNoPin" message="Enter a PIN!" action="Got it"></a-toast>
+      <!-- END TOAST -->
+	
+	  <a-entity id="sky"
+        rotation="0 90 0"
+        geometry="primitive: sphere; radius: 600; segmentsHeight: 32; segmentsWidth: 32"
+        material="shader: flat; fog: false; side: back; src: url(assets/images/sky.jpg)"
+      ></a-entity>
+      <!-- 360-degree image. -->
+      <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
+      <!-- END ENVIRONEMENT -->
+	  
+	 
+
+   
+    </a-scene>
+	
+	
+	
+    <script type="text/javascript">
+      let pin = document.querySelector('a-input').value;
+      let button = document.querySelector('a-button');
+	  let toast = document.getElementById('toastConnected');
+	
+      toast.addEventListener('actionclick', () => {
+        toast.hide();
+      });
+	  
+      button.addEventListener('click', () => {
+          if(document.getElementById('password').value == null)
+		  {
+		  document.getElementById('toastNoPin').show();
+		  }
+		  else if(document.getElementById('password').value !== "1111")
+		  {
+		  document.getElementById('toastWrong').show();
+		  }
+		  else
+		  {
+		  toast.show();
+		  MQTTconnect();
+		  }
+      });
+
+    </script>
+  </body>
+
+</html>
