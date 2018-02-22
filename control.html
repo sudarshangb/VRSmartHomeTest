@@ -37,24 +37,22 @@
            </a-cursor></a-entity>
       </a-camera></a-entity>
 
-     <a-sphere click-drag position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-     <a-camera look-controls-enabled="false"></a-camera>
 
       <!-- BEGIN FORM -->
-      <a-rounded position="0.5 0.5 -2.5" width="3" height="3" radius="0.05" rotation="0 -20 0" scale="0.3 0.3 0.3">
+      <a-rounded position="-0.5 1.4 -3.5" width="2" height="1.5" radius="0.05" rotation="0 0 0" scale="0.3 0.3 0.3">
         <a-form>
-          <a-button position="0.2 0.8 0" name="stuff" value="Click me" type="raised"></a-button>
+          <a-button position="0.3 0.8 0" name="stuff" value="Click me" type="raised"></a-button>
         </a-form>
       </a-rounded>
       
       <!-- END FORM -->
 
       <!-- BEGIN TOAST -->
-      <a-toast message="Yo!VR Home!" action="Got it"></a-toast>
+      <a-toast position="-2.5 0.5 -2.5" message="Yo!Lights ON!" action="Got it"></a-toast>
       <!-- END TOAST -->
 	 <a-entity obj-model="obj: #bulb-obj; mtl: #bulb-mtl"></a-entity>
       <!-- 360-degree image. -->
-     <a-sky id="image-360" radius="10" src="innoworx.jpg" rotation="0 -50 0"><a-sky>
+     <a-sky id="image-360" radius="10" src="innoworx.jpg" rotation="0 -90 0"><a-sky>
       <!-- END ENVIRONEMENT -->
     </a-scene>
     <script type="text/javascript">
