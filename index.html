@@ -22,8 +22,9 @@
     <a-scene>
       <a-entity laser-controls="hand: right"></a-entity>
       <a-assets>
+        <img id="vrhomelogo" crossorigin="anonymous" src="https://ucarecdn.com/59e5395d-997b-4d48-9d4b-8d9f245e0cfd/">
         <img id="city" crossorigin="anonymous" src="https://ucarecdn.com/80c86187-e99a-4c33-b011-51acd8dc682a/">
-		<img id="vrhome" crossorigin="anonymous" src="assets/images/vrhome.png">
+	<img id="vrhome" crossorigin="anonymous" src="assets/images/vrhome.png">
 		
       </a-assets>
       <!-- camera and cursor -->
@@ -46,6 +47,7 @@
       <a-form>
         <a-button position="-0.8 0.25 -3.5" width="2" name="stuff" value="Enter Inside" disabled="false" type="raised"></a-button>
       </a-form>
+      
       <!-- END INPUTS/KEYBOARD -->
 
       <!-- BEGIN TOAST<a-entity obj-model="obj: #bulb-obj; mtl: #bulb-mtl"></a-entity> -->
@@ -60,7 +62,7 @@
         material="shader: flat; fog: false; side: back; src: url(assets/images/sky.jpg)"
       ></a-entity>
 	  
-	   <a-image  src="assets/images/vrhome.png" position= "0 2.5 -3.5"></a-image>
+	<a-image  src="#vrhomelogo" position= "0 2.5 -3.5"></a-image>
 	  
 	 
       <!-- 360-degree image. -->
@@ -77,7 +79,7 @@
     <script type="text/javascript">
       let pin = document.querySelector('a-input').value;
       let button = document.querySelector('a-button');
-	  let toast = document.getElementById('toastConnected');
+      let toast = document.getElementById('toastConnected');
 	
       toast.addEventListener('actionclick', () => {
         toast.hide();
