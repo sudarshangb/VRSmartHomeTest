@@ -10,13 +10,15 @@
     <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
     <script src="dist/aframe-material.js"></script>
     <script src="dist/mqtthome.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"/script> <!-- TEST -->	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"></script> <!-- TEST -->
+    
     <script type="text/javascript">
       AFRAME.ASSETS_PATH = "./assets";
     </script>
   </head>
   <body>
     <a-scene>
+     
       <a-entity laser-controls="hand: right"></a-entity>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="https://ucarecdn.com/80c86187-e99a-4c33-b011-51acd8dc682a/">
@@ -42,6 +44,7 @@
       <a-rounded position="-0.5 1.4 -3.5" width="2" height="1.5" radius="0.05" rotation="0 0 0" scale="0.3 0.3 0.3">
         <a-form>
           <a-button position="0.3 0.8 0" name="stuff" value="Click me" type="raised"></a-button>
+          
         </a-form>
       </a-rounded>
       
@@ -55,11 +58,15 @@
      <a-sky id="image-360" radius="10" src="innoworx.jpg" rotation="0 -90 0"><a-sky>
       <!-- END ENVIRONEMENT -->
     </a-scene>
+    
+    
+    
     <script type="text/javascript">
-	  
+      
       let button = document.querySelector('a-button');
       let toast = document.querySelector('a-toast');
-	  
+      	  
+      	  
       toast.addEventListener('actionclick', ()=>{
         toast.hide();
       });
