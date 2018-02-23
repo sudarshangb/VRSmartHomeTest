@@ -11,6 +11,11 @@
     <script src="dist/aframe-material.js"></script>
 	<script src="dist/mqtthome.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"></script>
+    <!-- A-Frame VR Library -->
+    <script src="https://aframe.io/releases/latest/aframe.js"></script> 
+ 
+    <!-- Component -->
+    <script src="dist/aframe-obj-loader-component.js"></script> 
 	
     <!-- TEST -->
     <script type="text/javascript">
@@ -52,6 +57,9 @@
       <!-- END INPUTS/KEYBOARD -->
 
       <!-- BEGIN TOAST<a-entity obj-model="obj: #bulb-obj; mtl: #bulb-mtl"></a-entity> -->
+      
+      <a-entity obj-loader="src: url(assets/obj/Light_bulb_01.obj);mtl: url(assets/obj/Light_bulb_01.mtl);"></a-entity>
+      
       <a-toast id="toastWrong" message="Oops!Wrong Pin!" action="Got it"></a-toast>
 	  <a-toast id="toastConnected" message="Connected!" action="Got it"></a-toast>
 	  <a-toast id="toastNoPin" message="Enter a PIN!" action="Got it"></a-toast>
