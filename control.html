@@ -44,7 +44,7 @@
       <a-rounded position="-0.5 1.4 -3.5" width="2" height="1.5" radius="0.05" rotation="0 0 0" scale="0.3 0.3 0.3">
         <a-form>
           <a-button position="0.3 0.8 0" name="stuff" value="Click me" type="raised"></a-button>
-          
+          <a-switch position="0.3 0.4 0" enabled="true"></a-switch>
         </a-form>
       </a-rounded>
       
@@ -52,6 +52,7 @@
 
       <!-- BEGIN TOAST -->
       <a-toast position="-2.5 0.5 -2.5" message="Yo!Lights ON!" action="Got it"></a-toast>
+      <a-toast id="toastoff" message="OFF!" action="Got it"></a-toast>
       <!-- END TOAST -->
 	 <a-entity obj-model="obj: #bulb-obj; mtl: #bulb-mtl"></a-entity>
       <!-- 360-degree image. -->
@@ -65,7 +66,18 @@
       
       let button = document.querySelector('a-button');
       let toast = document.querySelector('a-toast');
-      	  
+      let switch1 = document.querySelector('a-switch');  
+      	
+      switch1.addEventListener('change', ()=>{
+      if(switch1.on())
+      {
+      toast.show();
+      }
+      else
+      {
+      document.getElementById('toastoff').show();
+      }
+      });
       	  
       toast.addEventListener('actionclick', ()=>{
         toast.hide();
